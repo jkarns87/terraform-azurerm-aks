@@ -68,6 +68,12 @@ variable "agents_pool_drain_timeout_in_minutes" {
   description = "(Optional) The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created."
 }
 
+variable "agents_pool_undrainable_node_behavior" {
+  type        = string
+  default     = null
+  description = "(Optional) Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created."
+}
+
 variable "agents_pool_kubelet_configs" {
   type = list(object({
     cpu_manager_policy        = optional(string)
