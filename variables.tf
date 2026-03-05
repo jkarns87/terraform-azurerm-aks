@@ -1286,6 +1286,7 @@ variable "node_pools" {
       drain_timeout_in_minutes      = number
       node_soak_duration_in_minutes = number
       max_surge                     = string
+      undrainable_node_behavior     = optional(string, "Cordon")
     }))
     windows_profile = optional(object({
       outbound_nat_enabled = optional(bool, true)
@@ -1400,6 +1401,7 @@ variable "node_pools" {
       drain_timeout_in_minutes      = number
       node_soak_duration_in_minutes = number
       max_surge                     = string
+      undrainable_node_behavior     = optional(string, "Cordon")
     }))
     windows_profile = optional(object({
       outbound_nat_enabled = optional(bool, true)
